@@ -1,0 +1,10 @@
+.logo {
+  height: 38px;
+  width: 38px;
+}
+
+.logo-link {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}

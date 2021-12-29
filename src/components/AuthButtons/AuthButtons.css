@@ -1,0 +1,24 @@
+.auth-link {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.auth-button {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  max-height: 32px;
+}
+
+.auth-button_theme_green {
+  color: #000;
+  background-color: #3DDC84;
+  border-radius: 3px;
+  margin-left: 30px;
+}
