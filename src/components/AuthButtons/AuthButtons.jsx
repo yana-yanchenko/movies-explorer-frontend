@@ -6,10 +6,10 @@ const AuthButtons = () => {
 
   return (
     <>
-      <Link className="auth-link" to='/sign-up'>
+      <Link className="auth-link" to='/signup'>
         <button className="auth-button">Регистрация</button>
       </Link>
-      <Link className="auth-link" to='/sign-in'>
+      <Link className="auth-link" to='/signin'>
         <button className="auth-button auth-button_theme_green">Войти</button>
       </Link>
     </>

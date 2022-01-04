@@ -7,3 +7,18 @@
 .main_type_main {
   
 }
+
+.main_type_auth {
+  padding: 70px 0 70px 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 396px;
+}
+
+.main_type_profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 0 74px 0;
+}
