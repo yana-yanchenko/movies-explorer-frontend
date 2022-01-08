@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { moviesApi } from '../../utils/MoviesApi';
 import NotFound from '../NotFound/NotFound';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
@@ -16,6 +17,12 @@ const App = () => {
   const handleBackHistory = () => {
     navigate(-1)
   }
+  useEffect(() => {
+    moviesApi.getMovies()
+    .then((data) =>{
+      console.log(data);
+    })
+  }, []);
   const user  = {name : "Виталий"}
   return (
     <>

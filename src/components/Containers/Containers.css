@@ -22,3 +22,12 @@
   align-items: center;
   padding: 70px 0 74px 0;
 }
+
+.main_type_movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 70px 80px;
+  max-width: calc(100% - 140px);
+}

@@ -1,0 +1,73 @@
+@keyframes circleAnimation {
+  0% {
+    width: 16px;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 16px;
+  }
+}
+
+
+.switch {
+  position: relative;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+  background-color: #3DDC84;
+  border-radius: 20px;
+  padding: 2px;
+  transition: all 0.6s ease-in-out;
+}
+.switch_type_disable {
+  justify-content: flex-start;
+  background-color: rgb(128, 128, 128);
+}
+
+.switch__checkbox {
+  display: none;
+}
+
+
+.switch__circle {
+  display: flex;
+  height: 16px;
+  width: 16px;
+  margin: 0;
+  background: #fff;
+  border: 0 solid #bbb;
+  border-radius: 50%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.switch__circle:hover {
+  transform: scale(1.1);
+}
+
+.switch__circle_type_disable {
+
+}
+.switch__circle_type_active {
+
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  border-left: 1px solid #505050;
+  padding-left: 29px;
+  margin-left: 30px;
+}
+
+.filer__title {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-left: 15px;
+}
