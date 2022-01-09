@@ -1,0 +1,11 @@
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, max-content));
+  justify-content: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 28px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-top: 1px solid #424242;
+  padding-top: 79px;
+}

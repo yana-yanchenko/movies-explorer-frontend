@@ -12,6 +12,7 @@ import './App.css'
 
 
 const App = () => {
+  const [movies, setMovies] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const navigate = useNavigate()
   const handleBackHistory = () => {
@@ -20,7 +21,7 @@ const App = () => {
   useEffect(() => {
     moviesApi.getMovies()
     .then((data) =>{
-      console.log(data);
+      setMovies(data)
     })
   }, []);
   const user  = {name : "Виталий"}
@@ -31,7 +32,7 @@ const App = () => {
         <Route path="/signup" element={<Register/>}/>
         <Route path="/signin" element={<Login/>}/>
         <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} user={user}/>}/>
-        <Route path="/movies" element={<Movies isLoggedIn={isLoggedIn}/>}/>
+        <Route path="/movies" element={<Movies movies={movies} isLoggedIn={isLoggedIn}/>}/>
         <Route path="/saved-movies" element={<SavedMovies isLoggedIn={isLoggedIn}/>}/>
         <Route path="*" element={<NotFound onBack={handleBackHistory}/>}/>
       </Routes>
