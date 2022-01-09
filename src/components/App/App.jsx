@@ -14,10 +14,26 @@ import './App.css'
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isCurrentWidth, setIsCurrentWidth] = useState(window.innerWidth)
   const navigate = useNavigate()
   const handleBackHistory = () => {
     navigate(-1)
   }
+useEffect(() => {
+  let timer = null;
+  const resize = () => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      console.log(window.innerWidth);
+        setIsCurrentWidth(window.innerWidth)
+    }, 800)
+  }
+  window.addEventListener('resize', resize)
+  return () => {
+    window.removeEventListener('resize', resize)
+  }
+});
+
   useEffect(() => {
     moviesApi.getMovies()
     .then((data) =>{
