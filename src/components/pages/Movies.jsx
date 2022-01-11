@@ -6,7 +6,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import Footer from '../Footer/Footer'
 
-const Movies = ({ isLoggedIn, movies }) => {
+const Movies = ({ isLoggedIn, movies, isMoviesConfig, handleCardsIncreases }) => {
   const [isFilterButton, setIsFilterButton] = useState(false);
 
   const handleFilterButton = () => {
@@ -18,8 +18,8 @@ const Movies = ({ isLoggedIn, movies }) => {
       <Header isLoggedIn={isLoggedIn}/>
       <ContainerMain type="movies">
         <SearchForm isFilterButton={isFilterButton} onToggleSwitch={handleFilterButton}/>
-        <MoviesCardList movies={movies}/>
-        <ButtonMore/>
+        <MoviesCardList movies={movies} isMoviesConfig={isMoviesConfig}/>
+        <ButtonMore handleCardsIncreases={handleCardsIncreases}/>
       </ContainerMain>
       <Footer/>
     </>

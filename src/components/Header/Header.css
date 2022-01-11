@@ -10,3 +10,19 @@
 .header_theme_blue {
   background-color: #073042;
 }
+
+@media screen and (max-width: 800px) {
+  .header{
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header {
+    padding-left: 14px;
+    padding-right: 14px;
+    max-width: calc(100% - 28px);
+  }
+}

@@ -13,8 +13,9 @@ import './App.css'
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isCurrentWidth, setIsCurrentWidth] = useState(window.innerWidth)
+  const [isMoviesConfig, setIsMoviesConfig] = useState({number: 16, increment: 4})
   const navigate = useNavigate()
   const handleBackHistory = () => {
     navigate(-1)
@@ -24,8 +25,16 @@ useEffect(() => {
   const resize = () => {
     clearTimeout(timer)
     timer = setTimeout(() => {
-      console.log(window.innerWidth);
         setIsCurrentWidth(window.innerWidth)
+        if(window.innerWidth <= 450) {
+          setIsMoviesConfig({number: 5, increment: 2})
+        }
+        else if(window.innerWidth <= 800) {
+          setIsMoviesConfig({number: 8, increment: 2})
+        }
+        else{
+          setIsMoviesConfig({number: 16, increment: 4})
+        } 
     }, 800)
   }
   window.addEventListener('resize', resize)
@@ -41,6 +50,9 @@ useEffect(() => {
     })
   }, []);
   const user  = {name : "Виталий"}
+  const handleCardsIncreases = () => {
+    setIsMoviesConfig({number: isMoviesConfig.increment + isMoviesConfig.number, increment: isMoviesConfig.increment})
+  }
   return (
     <>
       <Routes>
@@ -48,7 +60,7 @@ useEffect(() => {
         <Route path="/signup" element={<Register/>}/>
         <Route path="/signin" element={<Login/>}/>
         <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} user={user}/>}/>
-        <Route path="/movies" element={<Movies movies={movies} isLoggedIn={isLoggedIn}/>}/>
+        <Route path="/movies" element={<Movies movies={movies} isLoggedIn={isLoggedIn} isMoviesConfig={isMoviesConfig} handleCardsIncreases={handleCardsIncreases}/>}/>
         <Route path="/saved-movies" element={<SavedMovies isLoggedIn={isLoggedIn}/>}/>
         <Route path="*" element={<NotFound onBack={handleBackHistory}/>}/>
       </Routes>

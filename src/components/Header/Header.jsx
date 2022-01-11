@@ -9,7 +9,7 @@ const Header = ({type, isLoggedIn}, props) => {
   return (
     <header className={`header header_theme_${type}`}>
       <Logo />
-      <Navigation/>
+      {/* <Navigation/> */}
       <AuthPromo isLoggedIn={isLoggedIn} />
     </header>
   );

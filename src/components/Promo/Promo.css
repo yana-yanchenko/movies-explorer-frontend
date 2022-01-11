@@ -8,7 +8,7 @@
   justify-content: center;
   background-size: 320px 320px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 40%;
 }
 
 .promo__title {
@@ -19,4 +19,6 @@
   max-width: 730px;
   text-align: center;
   margin: 0;
+  letter-spacing: -0.04em;
+  padding-bottom: 38px;
 }
