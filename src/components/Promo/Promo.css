@@ -22,3 +22,36 @@
   letter-spacing: -0.04em;
   padding-bottom: 38px;
 }
+
+@media screen and (max-width: 800px) {
+  .promo__title {
+    margin-left: 19px;
+    margin-right: 19px;
+    padding-top: 20px;
+  }
+  .promo {
+    min-height: 784px;
+    background-position: 50% 48%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .promo__title {
+    font-size: 31px;
+    line-height: 39px;
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  .promo__title {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .promo {
+    min-height: 570px;
+    background-size: 248px 248px;
+    background-position: 50% 44%;
+  }
+}
