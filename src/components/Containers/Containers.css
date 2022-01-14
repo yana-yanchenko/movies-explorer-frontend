@@ -4,9 +4,7 @@
   width: 100%;
 }
 
-.main_type_main {
-  
-}
+.main_type_main {}
 
 .main_type_auth {
   padding: 70px 0 70px 0;
@@ -30,4 +28,18 @@
   align-items: center;
   padding: 70px 70px 80px;
   max-width: calc(100% - 140px);
+}
+
+@media screen and (max-width: 800px) {
+  .main_type_auth {
+    padding-top: 232px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main_type_auth {
+    padding-top: 56px;
+    max-width: 260px;
+    align-items: center;
+  }
 }

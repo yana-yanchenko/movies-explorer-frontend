@@ -8,7 +8,7 @@
   font-weight: 400;
   font-size: 140px;
   line-height: 169px;
-  margin: 246px 0 0 0; 
+  margin: 246px 0 0 0;
 }
 
 .not-found__subtitle {
@@ -20,6 +20,7 @@
   padding: 0;
   margin: 5px 0 0 0;
 }
+
 .not-found__button {
   margin: 184px 0 0 0;
   font-weight: normal;
@@ -29,4 +30,33 @@
   border: none;
   cursor: pointer;
   background-color: transparent;
+}
+
+@media screen and (max-width: 800px) {
+  .not-found__title {
+    margin-top: 408px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .not-found__title {
+    margin-top: 329px;
+    font-size: 80px;
+    line-height: 97px;
+  }
+
+  .not-found__subtitle {
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 10px;
+  }
+
+  .not-found__button {
+    margin-top: 284px;
+  }
+
+  .not-found__button {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
