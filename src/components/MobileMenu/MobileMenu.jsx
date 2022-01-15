@@ -3,7 +3,7 @@ import AuthPromo from "../AuthPromo/AuthPromo";
 import Navigation from "../Navigation/Navigation";
 import "./MobileMenu.css";
 
-const MobileMenu = ({ isOpen, handleMobileMenu }) => {
+const MobileMenu = ({ isOpen, handleMobileMenu, isLoggedIn }) => {
   return (
     <aside
       className={`menu ${isOpen ? "menu_type_visible" : "menu_type_hidden"}`}
@@ -14,8 +14,12 @@ const MobileMenu = ({ isOpen, handleMobileMenu }) => {
           className="menu__button-cross"
           onClick={handleMobileMenu}
         ></button>
-        <Navigation navColumn={true} />
-        <AuthPromo />
+        <Navigation navColumn={true} handleMobileMenu={handleMobileMenu} />
+        <AuthPromo
+          isLoggedIn={isLoggedIn}
+          mobileMenuLocation={true}
+          handleMobileMenu={handleMobileMenu}
+        />
       </div>
     </aside>
   );

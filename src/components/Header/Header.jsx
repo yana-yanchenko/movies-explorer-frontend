@@ -9,9 +9,13 @@ const Header = ({ type, isLoggedIn, mobileSize, handleMobileMenu }) => {
   return (
     <header className={`header header_theme_${type}`}>
       <Logo />
-      <Navigation navColumn={false} />
-      <AuthPromo isLoggedIn={isLoggedIn} />
-      {mobileSize && <MobileMenuButton handleMobileMenu={handleMobileMenu} />}
+      {!mobileSize && isLoggedIn && <Navigation navColumn={false} />}
+
+      {mobileSize && isLoggedIn ? (
+        <MobileMenuButton handleMobileMenu={handleMobileMenu} />
+      ) : (
+        <AuthPromo isLoggedIn={isLoggedIn} />
+      )}
     </header>
   );
 };

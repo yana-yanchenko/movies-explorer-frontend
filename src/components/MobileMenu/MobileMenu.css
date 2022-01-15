@@ -34,7 +34,7 @@
 }
 
 .menu__bar {
-  width: calc(100% - 58.4px);
+  width: calc(70% - 58.4px);
   height: 100%;
   max-width: calc(520px - 58.4px);
   display: flex;
@@ -80,4 +80,15 @@
 
 .menu__button-cross:after {
   transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 380px) {
+  .menu__bar {
+    width: calc(100% - 40.4px);
+    max-width: 100%;
+    padding-top: 20.2px;
+    padding-bottom: 48px;
+    padding-left: 20.2px;
+    padding-right: 20.2px;
+  }
 }

@@ -78,7 +78,14 @@ const App = () => {
         <Route path="/signin" element={<Login />} />
         <Route
           path="/profile"
-          element={<Profile isLoggedIn={isLoggedIn} user={user} />}
+          element={
+            <Profile
+              isLoggedIn={isLoggedIn}
+              mobileSize={mobileSize}
+              handleMobileMenu={handleMobileMenu}
+              user={user}
+            />
+          }
         />
         <Route
           path="/movies"
@@ -88,6 +95,8 @@ const App = () => {
               isLoggedIn={isLoggedIn}
               isMoviesConfig={isMoviesConfig}
               handleCardsIncreases={handleCardsIncreases}
+              mobileSize={mobileSize}
+              handleMobileMenu={handleMobileMenu}
             />
           }
         />
@@ -101,6 +110,7 @@ const App = () => {
         <MobileMenu
           isOpen={isOpenMobileMenu}
           handleMobileMenu={handleMobileMenu}
+          isLoggedIn={isLoggedIn}
         />
       )}
     </>
