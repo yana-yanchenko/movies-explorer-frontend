@@ -34,12 +34,50 @@
 }
 
 .menu__bar {
-  width: 100%;
+  width: calc(100% - 58.4px);
   height: 100%;
-  max-width: 520px;
+  max-width: calc(520px - 58.4px);
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #202020;
   z-index: 999;
+  padding: 29.2px 29.2px 92px;
+  justify-content: space-between;
+}
+
+.menu__button-cross {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  transition: opacity 0.4s, transform 0.4s ease-in-out;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  align-self: flex-end;
+}
+
+.menu__button-cross:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.menu__button-cross:before,
+.menu__button-cross:after {
+  position: absolute;
+  left: 10px;
+  content: "";
+  height: 22px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.menu__button-cross:before {
+  transform: rotate(45deg);
+}
+
+.menu__button-cross:after {
+  transform: rotate(-45deg);
 }
