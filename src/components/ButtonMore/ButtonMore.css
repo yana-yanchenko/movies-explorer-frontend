@@ -10,4 +10,10 @@
   color: #FFFFFF;
   border-radius: 6px;
   padding: 11px 0 9px;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
+
+.movies-button:hover {
+  opacity: 0.6;
 }

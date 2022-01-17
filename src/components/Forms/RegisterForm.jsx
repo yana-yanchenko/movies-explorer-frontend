@@ -24,7 +24,7 @@ const RegisterForm = () => {
       <button type="submit" className="form__button form__button_type_signup">
         Зарегистрироваться
       </button>
-      <Link to="/sign-in" className="form__link">
+      <Link to="/signin" className="form__link">
         Уже зарегистрированы?
         <p className="form__link-value">Войти</p>
       </Link>

@@ -1,9 +1,9 @@
 .nav-tab {
-  background-color:  #272727;
+  background-color: #272727;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 0 ;
+  padding: 24px 0;
 
 }
 
@@ -13,6 +13,11 @@
   font-size: 13px;
   line-height: 16px;
   margin-right: 40px;
+  transition: opacity 0.5s linear;
+}
+
+.nav-tab__link:hover {
+  opacity: 0.6;
 }
 
 .nav-tab__link:last-child {
@@ -20,12 +25,13 @@
 }
 
 @media screen and (max-width: 380px) {
- .nav-tab {
-  padding-top: 25px;
-  padding-bottom: 25px;
- }
- .nav-tab__link {
-  font-size: 11px;
-  margin-right: 24px;
- }
+  .nav-tab {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .nav-tab__link {
+    font-size: 11px;
+    margin-right: 24px;
+  }
 }

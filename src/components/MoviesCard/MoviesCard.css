@@ -3,6 +3,11 @@
   flex-direction: column;
   width: 100%;
   max-width: 270px;
+  transition: transform 0.6s linear;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card__link {
@@ -20,12 +25,12 @@
 .card__title {
   font-weight: 500;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 22px;
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 14px 0 13px;
+  margin: 8px 0 19px;
   height: 100%;
   max-height: 32px;
   min-height: 32px;
@@ -39,4 +44,24 @@
   padding-top: 6px;
   border-top: 1px solid #424242;
   margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    max-width: 339px;
+  }
+
+  .card__image {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    max-width: 300px;
+  }
+
+  .card__image {
+    height: 168px;
+  }
 }

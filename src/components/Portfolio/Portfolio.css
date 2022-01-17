@@ -26,6 +26,11 @@
   padding: 0 0 19px 0;
   margin: 20px 0 0 0;
   border-bottom: 1px solid #424242;
+  transition: opacity 0.5s linear;
+}
+
+.portfolio__link:hover {
+  opacity: 0.6;
 }
 
 .portfolio__link:first-of-type {
@@ -46,11 +51,13 @@
   background-size: 100%;
   margin: 4px 6px 0;
 }
+
 @media screen and (max-width: 800px) {
   .portfolio {
     padding: 0 50px 90px;
     width: calc(100% - 100px);
   }
+
   .portfolio__link {
     font-size: 28px;
   }
@@ -68,10 +75,12 @@
     padding: 0 14px 70px;
     width: calc(100% - 28px);
   }
+
   .portfolio__title {
     font-size: 14px;
     margin-bottom: 40px;
   }
+
   .portfolio__arrow {
     width: 11px;
     height: 12px;

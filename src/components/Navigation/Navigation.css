@@ -21,16 +21,24 @@
   font-size: 13px;
   line-height: 18px;
   margin-right: 16px;
+  transition: opacity 0.5s linear;
+}
+
+.navigation__link:hover {
+  opacity: 0.6;
 }
 
 .navigation__list-element:first-child {
-  display: flex;
+  display: none;
 }
 
 .navigation__list-element_type_column {
   display: flex;
 }
 
+.navigation__list-element_type_column:first-child {
+  display: flex;
+}
 
 .navigation__link_type_active {
   font-weight: 500;

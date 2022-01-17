@@ -1,28 +1,18 @@
-@keyframes circleAnimation {
-  0% {
-    width: 16px;
-  }
-  50% {
-    width: 100%;
-  }
-  100% {
-    width: 16px;
-  }
-}
-
-
 .switch {
   position: relative;
-  width: 36px;
+  width: calc(36px - 4px);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 20px;
+  height: calc(20px - 4px);
   background-color: #3DDC84;
   border-radius: 20px;
   padding: 2px;
   transition: all 0.6s ease-in-out;
+  cursor: pointer;
 }
+
+
 .switch_type_disable {
   justify-content: flex-start;
   background-color: rgb(128, 128, 128);
@@ -48,20 +38,18 @@
   transform: scale(1.1);
 }
 
-.switch__circle_type_disable {
+.switch__circle_type_disable {}
 
-}
-.switch__circle_type_active {
-
-}
+.switch__circle_type_active {}
 
 .filter {
   display: flex;
   align-items: center;
-  min-height: 40px;
-  border-left: 1px solid #505050;
+  min-height: 72px;
   padding-left: 29px;
-  margin-left: 30px;
+  padding-right: 30px;
+  border-radius: 0 9px 9px 0;
+  background-color: #2F2F2F;
 }
 
 .filer__title {
@@ -70,4 +58,29 @@
   line-height: 18px;
   color: #FFFFFF;
   margin-left: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .filter {
+    padding-left: 19px;
+    padding-right: 21px;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .filter {
+    background-color: transparent;
+    padding: 45px 0 0 0;
+    min-height: min-content;
+  }
+
+  .filer__title {
+    margin-left: 13px;
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
 }

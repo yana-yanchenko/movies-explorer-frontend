@@ -34,6 +34,19 @@
   .main_type_auth {
     padding-top: 232px;
   }
+
+  .main_type_movies {
+    padding: 80px 30px;
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .main_type_movies {
+    padding-right: 10px;
+    padding-left: 10px;
+    max-width: calc(100% - 20px);
+  }
 }
 
 @media screen and (max-width: 450px) {

@@ -3,9 +3,27 @@
   grid-template-columns: repeat(auto-fit, minmax(270px, max-content));
   justify-content: center;
   grid-column-gap: 20px;
-  grid-row-gap: 28px;
+  grid-row-gap: 38px;
   padding-bottom: 10px;
   width: 100%;
   border-top: 1px solid #424242;
   padding-top: 79px;
+}
+
+@media screen and (max-width: 800px) {
+  .movies {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 339px));
+    padding-top: 80px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movies {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
+    padding-top: 50px;
+    grid-column-gap: 15px;
+    grid-row-gap: 34px;
+  }
 }

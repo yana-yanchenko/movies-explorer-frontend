@@ -30,6 +30,11 @@
   border: none;
   cursor: pointer;
   background-color: transparent;
+  transition: opacity 0.5s linear;
+}
+
+.not-found__button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 800px) {

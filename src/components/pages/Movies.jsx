@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import Footer from "../Footer/Footer";
+import Prealoder from "../Preloader/Preloader";
 
 const Movies = ({
   isLoggedIn,
@@ -32,8 +33,14 @@ const Movies = ({
           isFilterButton={isFilterButton}
           onToggleSwitch={handleFilterButton}
         />
-        <MoviesCardList movies={movies} isMoviesConfig={isMoviesConfig} />
-        <ButtonMore handleCardsIncreases={handleCardsIncreases} />
+        {movies.isLoading ? (
+          <Prealoder />
+        ) : (
+          <>
+            <MoviesCardList movies={movies} isMoviesConfig={isMoviesConfig} />
+            <ButtonMore handleCardsIncreases={handleCardsIncreases} />
+          </>
+        )}
       </ContainerMain>
       <Footer />
     </>

@@ -57,6 +57,12 @@
   font-size: 13px;
   line-height: 16px;
   margin: 220px 0 16px 0;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
+
+.profile-form__button-submit:hover {
+  opacity: 0.6;
 }
 
 .profile-form__button-logout {
@@ -67,6 +73,12 @@
   font-size: 13px;
   line-height: 16px;
   text-align: center;
+  transition: opacity 0.5s linear;
+  cursor: pointer;
+}
+
+.profile-form__button-logout:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 800px) {
