@@ -17,7 +17,7 @@ const App = () => {
     items: [],
     isLoading: false,
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isCurrentWidth, setIsCurrentWidth] = useState(window.innerWidth);
   const [isMoviesConfig, setIsMoviesConfig] = useState({
     number: 16,

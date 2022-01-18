@@ -10,7 +10,7 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
-  margin: 40px 0;
+  margin: 40px 0 16px 0;
 }
 
 .form__label {
@@ -68,7 +68,7 @@
 }
 
 .form__button_type_signup {
-  margin-top: 152px;
+  margin-top: 134px;
 }
 
 .form__link {
@@ -110,12 +110,12 @@
   .form__button {
     font-size: 12px;
     line-height: 15px;
-    height: 47px;
+    height: 45px;
     margin-bottom: 14px;
   }
 
   .form__button_type_signup {
-    margin-top: 240px;
+    margin-top: 222px;
   }
 
   .form__button_type_signin {
