@@ -65,7 +65,7 @@ const App = () => {
         setMoviesSaved({ items: [], isLoading: false });
       });
   }, []);
-  const user = { name: "Виталий" };
+  const user = { name: "Виталий", email: "pochta@yandex.ru" };
   const handleCardsIncreases = () => {
     setIsMoviesConfig({
       number: isMoviesConfig.increment + isMoviesConfig.number,

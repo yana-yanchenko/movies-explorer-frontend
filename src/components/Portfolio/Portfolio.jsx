@@ -24,7 +24,13 @@ const Portfolio = () => {
     <section className="portfolio">
       <h5 className="portfolio__title">Портфолио</h5>
       {portfolioLinks.map((item) => (
-        <a href={item.path} className="portfolio__link" key={item.id}>
+        <a
+          href={item.path}
+          className="portfolio__link"
+          target="_blank"
+          rel="noopener noreferrer"
+          key={item.id}
+        >
           {item.name}{" "}
           <span
             className="portfolio__arrow"

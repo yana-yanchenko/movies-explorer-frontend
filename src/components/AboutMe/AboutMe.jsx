@@ -4,7 +4,7 @@ import "./AboutMe.css";
 
 const AboutMe = () => {
   return (
-    <section className="about-me">
+    <section className="about-me" id="info">
       <SectionTitle title="Студент" h={4} />
       <article className="about-me__info">
         <div className="about-me__list">
@@ -18,13 +18,29 @@ const AboutMe = () => {
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
           <div className="about-me__links">
-            <a href="" className="about-me__link">Facebook</a>
-            <a href="" className="about-me__link">Github</a>
+            <a
+              href="https://github.com/yana-yanchenko"
+              className="about-me__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+            <a
+              href="https://github.com/yana-yanchenko"
+              className="about-me__link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
           </div>
         </div>
         <a
           className="aboute-me__image"
           href="https://github.com/yana-yanchenko"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             backgroundImage: `url(${"https://avatars.githubusercontent.com/u/82964950?v=4"})`,
           }}

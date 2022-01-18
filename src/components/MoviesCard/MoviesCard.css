@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 270px;
-  transition: transform 0.6s linear;
+  transition: transform 0.3s linear;
 }
 
 .card:hover {
