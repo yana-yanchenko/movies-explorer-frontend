@@ -52,7 +52,7 @@
   background-color: #2F2F2F;
 }
 
-.filer__title {
+.filter__title {
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
@@ -75,7 +75,7 @@
     min-height: min-content;
   }
 
-  .filer__title {
+  .filter__title {
     margin-left: 13px;
     font-size: 11px;
     line-height: 13px;

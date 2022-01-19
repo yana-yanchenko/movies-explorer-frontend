@@ -2,7 +2,7 @@ import React from "react";
 import ButtonMoviLike from "../ButtonMoviLike/ButtonMoviLike";
 import "./MoviesCard.css";
 
-const MoviesCard = ({ movie }) => {
+const MoviesCard = ({ movie, isLocationSaved }) => {
   const timeConventer = (data) => {
     const hour = Math.floor(data / 60);
     const minutes = data % 60;
@@ -31,7 +31,7 @@ const MoviesCard = ({ movie }) => {
       </a>
       <h2 className="card__title">
         {movie.nameRU}
-        <ButtonMoviLike />
+        <ButtonMoviLike isLocationSaved={isLocationSaved} />
       </h2>
       <p className="card__time">{timeConventer(movie.duration)}</p>
     </article>

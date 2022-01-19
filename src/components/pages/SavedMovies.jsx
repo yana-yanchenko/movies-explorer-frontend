@@ -35,7 +35,11 @@ const SavedMovies = ({
           <Prealoder />
         ) : (
           <>
-            <MoviesCardList movies={movies} isMoviesConfig={isMoviesConfig} />
+            <MoviesCardList
+              movies={movies}
+              isMoviesConfig={isMoviesConfig}
+              isLocationSaved={true}
+            />
           </>
         )}
       </ContainerMain>

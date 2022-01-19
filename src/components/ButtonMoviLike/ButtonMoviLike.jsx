@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import "./ButtonMoviLike.css";
 import likeActive from "../../images/like-active.svg";
 import likeDisable from "../../images/like-disable.svg";
+import likeSaved from "../../images/saved-cross.svg";
 
-const ButtonMoviLike = () => {
+const ButtonMoviLike = ({ isLocationSaved }) => {
   const [Like, setLike] = useState(false);
   const handleLike = () => {
     setLike(!Like);
   };
   return (
-    <span
-      className="card-button"
-      style={{ backgroundImage: `url(${Like ? likeActive : likeDisable})` }}
+    <button
+      className={`${isLocationSaved ? "saved-button" : "card-button"}`}
+      style={{
+        backgroundImage: `url(${
+          isLocationSaved ? likeSaved : Like ? likeActive : likeDisable
+        })`,
+      }}
       onClick={handleLike}
-    ></span>
+      type="button"
+    ></button>
   );
 };
 

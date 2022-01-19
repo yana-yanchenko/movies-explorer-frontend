@@ -7,8 +7,8 @@ const Techs = () => {
   return (
     <section className="techs" id="techs">
       <SectionTitle title="Технологии" h={3} />
-      <h2 className="techs_title">7 технологий</h2>
-      <p className="techs_subtitle">
+      <h2 className="techs__title">7 технологий</h2>
+      <p className="techs__subtitle">
         На курсе веб-разработки мы освоили технологии, которые применили в
         дипломном проекте.
       </p>

@@ -37,7 +37,11 @@ const Movies = ({
           <Prealoder />
         ) : (
           <>
-            <MoviesCardList movies={movies} isMoviesConfig={isMoviesConfig} />
+            <MoviesCardList
+              movies={movies}
+              isMoviesConfig={isMoviesConfig}
+              isLocationSaved={false}
+            />
             <ButtonMore handleCardsIncreases={handleCardsIncreases} />
           </>
         )}

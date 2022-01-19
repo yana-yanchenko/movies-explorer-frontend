@@ -28,7 +28,7 @@
   background-size: 38%;
 }
 
-.seacrh__line {
+.search-form__line {
   position: absolute;
   top: 50%;
   right: 0;
@@ -53,8 +53,9 @@
 
 .search-form__input:focus {
   outline: none;
-  border: none;
+  border-bottom: 1px solid #8B8B8B;
   color: #fff;
+
 }
 
 .search-form__button {
@@ -109,7 +110,7 @@
     display: none;
   }
 
-  .seacrh__line {
+  .search-form__line {
     display: none;
   }
 }

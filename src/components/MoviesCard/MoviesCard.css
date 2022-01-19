@@ -10,6 +10,11 @@
   transform: scale(1.05);
 }
 
+.card:hover .saved-button {
+  opacity: 1;
+  visibility: visible;
+}
+
 .card__link {
   display: flex;
   text-decoration: none;

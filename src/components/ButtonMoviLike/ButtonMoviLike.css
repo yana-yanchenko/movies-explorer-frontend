@@ -9,8 +9,27 @@
   margin-left: 20px;
   transition: opacity 0.5s linear;
   cursor: pointer;
+  border: none;
+  padding: 0;
 }
 
 .card-button:hover {
   opacity: 0.6;
+}
+
+.saved-button {
+  height: 24px;
+  width: 24px;
+  background-color: #313131;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 8.5px;
+  border-radius: 50%;
+  margin-left: 20px;
+  transition: opacity 0.5s, visibility 0.5s linear;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
 }

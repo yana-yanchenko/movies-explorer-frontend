@@ -12,12 +12,17 @@ const SearchForm = ({ isFilterButton, onToggleSwitch }) => {
           className="search-form__icon"
           style={{ backgroundImage: `url(${searchIcon})` }}
         ></div>
-        <input className="search-form__input" type="text" placeholder="Фильм" />
+        <input
+          className="search-form__input"
+          type="text"
+          placeholder="Фильм"
+          required="true"
+        />
         <button
           className="search-form__button"
           style={{ backgroundImage: `url(${searchIconWhite})` }}
         ></button>
-        <hr className="seacrh__line" />
+        <hr className="search-form__line" />
       </form>
       <FilterSwitchButton
         isFilterButton={isFilterButton}

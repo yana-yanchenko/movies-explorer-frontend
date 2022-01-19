@@ -37,7 +37,7 @@ const AboutMe = () => {
           </div>
         </div>
         <a
-          className="aboute-me__image"
+          className="about-me__image"
           href="https://github.com/yana-yanchenko"
           target="_blank"
           rel="noopener noreferrer"
