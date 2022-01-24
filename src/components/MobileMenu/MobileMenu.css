@@ -1,0 +1,94 @@
+.menu {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 997;
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  background-color: transparent;
+}
+
+.menu_type_visible {
+  display: flex;
+  transform: translateX(0);
+}
+
+
+.menu_type_hidden {
+  transform: translateX(200%);
+}
+
+.menu__lens {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+
+.menu__bar {
+  width: calc(70% - 58.4px);
+  height: 100%;
+  max-width: calc(520px - 58.4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202020;
+  z-index: 999;
+  padding: 29.2px 29.2px 92px;
+  justify-content: space-between;
+}
+
+.menu__button-cross {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  transition: opacity 0.4s, transform 0.4s ease-in-out;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  align-self: flex-end;
+}
+
+.menu__button-cross:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.menu__button-cross:before,
+.menu__button-cross:after {
+  position: absolute;
+  left: 10px;
+  content: "";
+  height: 22px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.menu__button-cross:before {
+  transform: rotate(45deg);
+}
+
+.menu__button-cross:after {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 380px) {
+  .menu__bar {
+    width: calc(100% - 40.4px);
+    max-width: 100%;
+    padding-top: 20.2px;
+    padding-bottom: 48px;
+    padding-left: 20.2px;
+    padding-right: 20.2px;
+  }
+}
