@@ -55,7 +55,7 @@
   border: none;
   color: #fff;
   margin: 0 0 16px 0;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.5s, background-color 0.5s linear;
   cursor: pointer;
 }
 
@@ -69,6 +69,10 @@
 
 .form__button_type_signup {
   margin-top: 134px;
+}
+
+.form__button_type_disabled {
+  background-color: #8a8a8a;
 }
 
 .form__link {

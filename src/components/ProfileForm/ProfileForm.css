@@ -47,7 +47,15 @@
   outline: none;
 }
 
-.profile-form__span {}
+.profile-form__span {
+  display: none;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  margin: 6px 0 0 0;
+  width: 100%;
+}
 
 .profile-form__button-submit {
   border: none;
@@ -58,7 +66,11 @@
   line-height: 16px;
   margin: 220px 0 16px 0;
   cursor: pointer;
-  transition: opacity 0.5s linear;
+  transition: opacity 0.5s, color 0.5s linear;
+}
+
+.profile-form__button-submit_type_disabled {
+  color: #8a8a8a;
 }
 
 .profile-form__button-submit:hover {

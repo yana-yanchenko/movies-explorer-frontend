@@ -9,6 +9,8 @@ import Movies from "../pages/Movies";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import SavedMovies from "../pages/SavedMovies";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { mainApi } from "../../utils/MainApi";
 import "./App.css";
 
 const App = () => {
@@ -23,12 +25,20 @@ const App = () => {
     number: 16,
     increment: 4,
   });
+  const [currentUser, setCurrentUser] = useState({});
   const [isOpenMobileMenu, setIsOpenMobileMenu] = useState(false);
   const mobileSize = isCurrentWidth <= 800;
   const navigate = useNavigate();
-  const handleBackHistory = () => {
-    navigate(-1);
-  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkAuth(token)
+      getMovies()
+    }
+
+  }, []);
+
   useEffect(() => {
     let timer = null;
     const resize = () => {
@@ -50,7 +60,7 @@ const App = () => {
     };
   });
 
-  useEffect(() => {
+  const getMovies = () => {
     setMovies({ items: [], isLoading: true });
     setMoviesSaved({ items: [], isLoading: true });
     moviesApi
@@ -64,19 +74,78 @@ const App = () => {
         setMovies({ items: [], isLoading: false });
         setMoviesSaved({ items: [], isLoading: false });
       });
-  }, []);
-  const user = { name: "Виталий", email: "pochta@yandex.ru" };
+  }
+
+  const handleBackHistory = () => {
+    navigate(-1);
+  };
+
   const handleCardsIncreases = () => {
     setIsMoviesConfig({
       number: isMoviesConfig.increment + isMoviesConfig.number,
       increment: isMoviesConfig.increment,
     });
   };
+
   const handleMobileMenu = () => {
     setIsOpenMobileMenu(!isOpenMobileMenu);
   };
+
+  const handleRegister = (data) => {
+    mainApi
+      .register(data.name, data.email, data.password)
+      .then((res) => {
+        handleLogin(data.email, data.password);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const checkAuth = (token) => {
+    mainApi.getMe(token)
+      .then((res) => {
+        if (res) {
+          setIsLoggedIn(true)
+          setCurrentUser({ name: res.name, email: res.email, id: res.id });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  }
+
+  const handleLogin = (email, password) => {
+    mainApi
+      .login(email, password)
+      .then((data) => {
+        setCurrentUser({ name: data.name, email: data.email, id: data.id });
+        setIsLoggedIn(true);
+        navigate("/movies");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const handleUpdateUser = (data) => {
+    const token = localStorage.getItem('token')
+    mainApi.updateMe(data, token)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+  }
+
+  const handleLogOut = () => {
+    localStorage.clear()
+    navigate("/");
+  }
+
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route
           path="/"
@@ -88,8 +157,11 @@ const App = () => {
             />
           }
         />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
+        <Route
+          path="/signup"
+          element={<Register onSubmit={handleRegister} />}
+        />
+        <Route path="/signin" element={<Login onSubmit={handleLogin} />} />
         <Route
           path="/profile"
           element={
@@ -97,7 +169,8 @@ const App = () => {
               isLoggedIn={isLoggedIn}
               mobileSize={mobileSize}
               handleMobileMenu={handleMobileMenu}
-              user={user}
+              onLogOut={handleLogOut}
+              onUpdateUser={handleUpdateUser}
             />
           }
         />
@@ -135,7 +208,7 @@ const App = () => {
           isLoggedIn={isLoggedIn}
         />
       )}
-    </>
+    </CurrentUserContext.Provider>
   );
 };
 
