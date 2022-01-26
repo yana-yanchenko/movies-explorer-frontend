@@ -25,7 +25,7 @@ const MoviesCard = ({ movie, isLocationSaved }) => {
       >
         <img
           className="card__image"
-          src={`https://api.nomoreparties.co/${movie.image.url}`}
+          src={movie.image}
           alt={movie.nameRU}
         />
       </a>

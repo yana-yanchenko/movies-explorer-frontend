@@ -16,7 +16,7 @@ const SearchForm = ({ isFilterButton, onToggleSwitch }) => {
           className="search-form__input"
           type="text"
           placeholder="Фильм"
-          required="true"
+          required
         />
         <button
           className="search-form__button"

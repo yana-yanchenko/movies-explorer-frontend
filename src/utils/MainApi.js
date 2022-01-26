@@ -48,7 +48,7 @@ class MainApi {
     return fetch(`${this._url}/users/me`, {
         method: 'PATCH',
         headers: {
-          'Assept': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -63,18 +63,66 @@ class MainApi {
     return fetch(`${this._url}/users/me`, {
         method: 'GET',
         headers: {
-          'Assept': 'application/json',
+          'Accept': 'application/json',
           'Authorization': `Bearer ${token}`
         },
       })
       .then(this._handleResponse)
   }
+
+  getSavedMovies(token) {
+    return fetch(`${this._url}/movies`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      .then(this._handleResponse)
+  }
+
+  setMovieUser(data, token) {
+    return fetch(`${this._url}/movies`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          country: data.country,
+          director: data.director,
+          description: data.description,
+          duration: data.duration,
+          image: data.image,
+          trailer: data.trailer,
+          thumbnail: data.thumbnail,
+          movieId: data.movieId,
+          nameRU: data.nameRU,
+          nameEN: data.nameEN,
+          year: data.year,
+        })
+      })
+      .then(this._handleResponse)
+  }
+
+  deleteMovieUser(id, token) {
+    return fetch(`${this._url}/movies/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+      })
+      .then(this._handleResponse)
+  }
+
 }
+
 
 export const mainApi = new MainApi({
   url: "https://api-explorer-diploma.nomoredomains.rocks",
   headers: {
-    'Assept': 'application/json',
+    'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
 })

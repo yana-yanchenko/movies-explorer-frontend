@@ -11,7 +11,9 @@ import Register from "../pages/Register";
 import SavedMovies from "../pages/SavedMovies";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { mainApi } from "../../utils/MainApi";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
+import { convertMovies } from "../../utils/movies-services";
 
 const App = () => {
   const [movies, setMovies] = useState({ items: [], isLoading: false });
@@ -35,6 +37,7 @@ const App = () => {
     if (token) {
       checkAuth(token)
       getMovies()
+      getSavedMoviesUser()
     }
 
   }, []);
@@ -62,18 +65,31 @@ const App = () => {
 
   const getMovies = () => {
     setMovies({ items: [], isLoading: true });
-    setMoviesSaved({ items: [], isLoading: true });
+
     moviesApi
       .getMovies()
       .then((data) => {
-        setMovies({ items: data, isLoading: false });
-        setMoviesSaved({ items: data.slice(0, 3), isLoading: false });
+        const BeatMovies = convertMovies(data)
+        setMovies({ items: BeatMovies, isLoading: false });
       })
       .catch((err) => {
         console.log(err);
         setMovies({ items: [], isLoading: false });
-        setMoviesSaved({ items: [], isLoading: false });
       });
+  }
+
+  const getSavedMoviesUser = () => {
+    setMoviesSaved({ items: [], isLoading: true });
+    const token = localStorage.getItem('token')
+    mainApi.getSavedMovies(token)
+      .then((movies) => {
+        setMoviesSaved({ items: movies, isLoading: false });
+      })
+      .catch((err) => {
+        console.error(err);
+        setMoviesSaved({ items: [], isLoading: false });
+      })
+
   }
 
   const handleBackHistory = () => {
@@ -165,37 +181,53 @@ const App = () => {
         <Route
           path="/profile"
           element={
-            <Profile
+            <ProtectedRoute
               isLoggedIn={isLoggedIn}
-              mobileSize={mobileSize}
-              handleMobileMenu={handleMobileMenu}
-              onLogOut={handleLogOut}
-              onUpdateUser={handleUpdateUser}
+              children={
+                <Profile
+                  isLoggedIn={isLoggedIn}
+                  mobileSize={mobileSize}
+                  handleMobileMenu={handleMobileMenu}
+                  onLogOut={handleLogOut}
+                  onUpdateUser={handleUpdateUser}
+                />
+              }
             />
+
           }
         />
         <Route
           path="/movies"
           element={
-            <Movies
-              movies={movies}
+            <ProtectedRoute
               isLoggedIn={isLoggedIn}
-              isMoviesConfig={isMoviesConfig}
-              handleCardsIncreases={handleCardsIncreases}
-              mobileSize={mobileSize}
-              handleMobileMenu={handleMobileMenu}
+              children={
+                <Movies
+                  movies={movies}
+                  isLoggedIn={isLoggedIn}
+                  isMoviesConfig={isMoviesConfig}
+                  handleCardsIncreases={handleCardsIncreases}
+                  mobileSize={mobileSize}
+                  handleMobileMenu={handleMobileMenu}
+                />
+              }
             />
           }
         />
         <Route
           path="/saved-movies"
           element={
-            <SavedMovies
-              movies={moviesSaved}
+            <ProtectedRoute
               isLoggedIn={isLoggedIn}
-              isMoviesConfig={isMoviesConfig}
-              mobileSize={mobileSize}
-              handleMobileMenu={handleMobileMenu}
+              children={
+                <SavedMovies
+                  movies={moviesSaved}
+                  isLoggedIn={isLoggedIn}
+                  isMoviesConfig={isMoviesConfig}
+                  mobileSize={mobileSize}
+                  handleMobileMenu={handleMobileMenu}
+                />
+              }
             />
           }
         />
