@@ -9,7 +9,7 @@ const ProfileForm = ({ onLogOut, onUpdateUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValid) {
+    if (isValid || (user.name === values.name || user.email === values.email)) {
       onUpdateUser(values);
       resetForm()
     }
@@ -25,7 +25,6 @@ const ProfileForm = ({ onLogOut, onUpdateUser }) => {
           className={`profile-form__input ${errors?.name && 'form__input_type_error'}`}
           placeholder={user.name}
           name="name"
-          required
           minLength="2"
           maxLength="30"
           type="text"
@@ -47,7 +46,7 @@ const ProfileForm = ({ onLogOut, onUpdateUser }) => {
         />
       </label>
       <span className={`profile-form__span ${errors?.email && 'form__error_type_active'}`}>{errors?.email}</span>
-      <button disabled={!isValid} type="submit" className={`profile-form__button-submit ${!isValid && 'profile-form__button-submit_type_disabled'}`}>Редактировать</button>
+      <button disabled={!isValid || (user.name === values.name || user.email === values.email)} type="submit" className={`profile-form__button-submit ${(!isValid || (user.name === values.name || user.email === values.email)) && 'profile-form__button-submit_type_disabled'}`}>Редактировать</button>
 
       < button className="profile-form__button-logout" type="button" onClick={onLogOut}>Выйти из аккаунта</button>
     </form>

@@ -49,6 +49,7 @@ class MainApi {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -86,6 +87,7 @@ class MainApi {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({

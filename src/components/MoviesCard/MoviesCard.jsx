@@ -1,24 +1,14 @@
 import React from "react";
+import { timeConventer } from "../../utils/movies-services";
 import ButtonMoviLike from "../ButtonMoviLike/ButtonMoviLike";
 import "./MoviesCard.css";
 
-const MoviesCard = ({ movie, isLocationSaved }) => {
-  const timeConventer = (data) => {
-    const hour = Math.floor(data / 60);
-    const minutes = data % 60;
-    let time = ``;
-    if (hour > 0) {
-      time += hour + "ч ";
-    }
-    if (minutes > 0) {
-      time += minutes + "м";
-    }
-    return time;
-  };
+const MoviesCard = ({ movie, isLocationSaved, handleSavedMovies, handleDeleteMovies, isLiked }) => {
+
   return (
     <article className="card">
       <a
-        href={movie.trailerLink}
+        href={movie.trailer}
         className="card__link"
         target="_blank"
         rel="noopener noreferrer"
@@ -31,7 +21,7 @@ const MoviesCard = ({ movie, isLocationSaved }) => {
       </a>
       <h2 className="card__title">
         {movie.nameRU}
-        <ButtonMoviLike isLocationSaved={isLocationSaved} />
+        <ButtonMoviLike isLocationSaved={isLocationSaved} handleSavedMovies={handleSavedMovies} handleDeleteMovies={handleDeleteMovies} movie={movie} isLiked={isLiked} />
       </h2>
       <p className="card__time">{timeConventer(movie.duration)}</p>
     </article>
