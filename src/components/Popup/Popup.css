@@ -41,3 +41,11 @@
   width: 95%;
   text-align: center;
 }
+
+@media screen and (max-width: 490px) {
+  .popup {
+    min-width: 80%;
+    width: calc(80% - 10px);
+    max-width: 100%;
+  }
+}
