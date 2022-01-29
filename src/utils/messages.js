@@ -1,7 +1,7 @@
 export const messages = {
   IS_LOGIN_OK: 'Вход в аккаунт выполнен успешно',
   IS_REGISTER_OK: 'Регистрация прошла успешно',
-  IS_LOGOUT_OK: 'До свидание!',
+  IS_LOGOUT_OK: 'До свидания!',
   IS_UPDATE_USER_OK: 'Профиль успешно обновлён',
   IS_MOVIES_DELETE_OK: 'Фильм успешно удалён',
   IS_MOVIES_LIKE_OK: 'Фильм успешно сохранён',
