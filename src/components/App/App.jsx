@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { moviesApi } from "../../utils/MoviesApi";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import NotFound from "../NotFound/NotFound";
@@ -273,9 +273,9 @@ const App = () => {
         />
         <Route
           path="/signup"
-          element={isLoggedIn ? <NotFound onBack={handleBackHistory} /> : <Register onSubmit={handleRegister} />}
+          element={isLoggedIn ? <Navigate to="/movies" /> : <Register onSubmit={handleRegister} />}
         />
-        <Route path="/signin" element={isLoggedIn ? <NotFound onBack={handleBackHistory} /> : <Login onSubmit={handleLogin} />} />
+        <Route path="/signin" element={isLoggedIn ? <Navigate to="/movies" /> : <Login onSubmit={handleLogin} />} />
         <Route
           path="/profile"
           element={

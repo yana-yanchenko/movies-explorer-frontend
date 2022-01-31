@@ -1,3 +1,7 @@
+import {
+  config
+} from "./config";
+
 export const convertMovies = (data) => {
   return data.map(({
     country,
@@ -34,7 +38,7 @@ export const convertMovies = (data) => {
 
 export const filterMoviesShorts = (data) => data.filter(({
   duration
-}) => duration <= 40)
+}) => duration <= config.SHORT_MOVIES_DURATION)
 
 export const filterKeywords = (collection, keyword) => collection.filter(({
   nameRU

@@ -20,7 +20,7 @@ const SavedMovies = ({
 }) => {
   const [isFilterButton, setIsFilterButton] = useState(true);
   const [currentMovies, setCurrentMovies] = useState([]);
-  const [key, setKey] = useState('');
+  const [key, setKey] = useState(LocalServices.getItem('lastSearchMoviesSavedKeyword'));
 
   useEffect(() => {
     if (!moviesSaved.isLoading) {
@@ -29,10 +29,6 @@ const SavedMovies = ({
   }, [isFilterButton, moviesSaved.isLoading, moviesSaved.items, moviesSaved.itemsShort]);
 
   useEffect(() => {
-    const lastSearchingKey = LocalServices.getItem('lastSearchMoviesSavedKeyword')
-    if (lastSearchingKey) {
-      setKey(lastSearchingKey)
-    }
     const lastValueFilterButton = LocalServices.getItem('isFilterButtonMoviesSaved')
     if (lastValueFilterButton === false) {
       setIsFilterButton(false)
@@ -78,6 +74,7 @@ const SavedMovies = ({
           onSubmit={handleSearchMovieByKeyword}
           keyword={key}
           setKeyword={setKey}
+          isLocationSaved={true}
         />
         {moviesSaved.isLoading ? (
           <Prealoder />

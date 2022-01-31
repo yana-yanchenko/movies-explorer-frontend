@@ -39,6 +39,7 @@ const RegisterForm = ({ onSubmit }) => {
           name="email"
           required={true}
           type="email"
+          pattern="^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$"
           value={values.email || ""}
           onChange={handleChange}
         />
