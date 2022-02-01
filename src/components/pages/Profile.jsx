@@ -3,7 +3,7 @@ import ContainerMain from "../Containers/ContainerMain";
 import Header from "../Header/Header";
 import ProfileForm from "../ProfileForm/ProfileForm";
 
-const Profile = ({ isLoggedIn, user, mobileSize, handleMobileMenu }) => {
+const Profile = ({ isLoggedIn, mobileSize, handleMobileMenu, onLogOut, onUpdateUser }) => {
   return (
     <>
       <Header
@@ -12,7 +12,7 @@ const Profile = ({ isLoggedIn, user, mobileSize, handleMobileMenu }) => {
         handleMobileMenu={handleMobileMenu}
       />
       <ContainerMain type="profile">
-        <ProfileForm user={user} />
+        <ProfileForm onUpdateUser={onUpdateUser} onLogOut={onLogOut} />
       </ContainerMain>
     </>
   );

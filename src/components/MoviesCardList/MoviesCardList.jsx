@@ -1,14 +1,17 @@
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
-const MoviesCardList = ({ movies, isMoviesConfig, isLocationSaved }) => {
+const MoviesCardList = ({ currentMovies, moviesSaved, isMoviesConfig, isLocationSaved, handleSavedMovies, handleDeleteMovies }) => {
   return (
     <section className="movies">
-      {movies.items.slice(0, isMoviesConfig.number).map((movie) => (
+      {currentMovies.slice(0, isMoviesConfig.number).map((movie) => (
         <MoviesCard
           movie={movie}
-          key={movie.id}
+          key={movie.movieId}
+          isLiked={(!isLocationSaved && moviesSaved.items.some((e) => e.movieId === movie.movieId))}
           isLocationSaved={isLocationSaved}
+          handleSavedMovies={handleSavedMovies}
+          handleDeleteMovies={handleDeleteMovies}
         />
       ))}
     </section>
